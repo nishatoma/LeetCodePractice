@@ -301,6 +301,10 @@ public class Node {
         return newHeadCopy;
     }
 
+    public Node getNext() {
+        return next;
+    }
+
     @Override
     public String toString() {
         return "Node {" +
