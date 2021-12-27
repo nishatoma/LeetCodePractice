@@ -11,9 +11,9 @@ package linkedlist;
  * }
  */
 class PalindromeLinkedList234 {
-    public boolean isPalindrome(Node head) {
-        Node slow = head;
-        Node fast = head;
+    public boolean isPalindrome(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
 
         while (fast != null && fast.getNext() != null) {
             slow = slow.getNext();
@@ -36,16 +36,16 @@ class PalindromeLinkedList234 {
         return true;
     }
 
-    public Node reversed(Node head) {
+    public ListNode reversed(ListNode head) {
 
         if (head == null) {
             return null;
         }
 
-        Node prev = null;
+        ListNode prev = null;
 
         while (head != null) {
-            Node next = head.getNext();
+            ListNode next = head.getNext();
             // Swap
             head.setNext(prev);
             prev = head;

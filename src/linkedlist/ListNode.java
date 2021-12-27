@@ -3,27 +3,27 @@ package linkedlist;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Node {
+public class ListNode {
 
     private final int data;
-    private Node next;
+    private ListNode next;
 
-    Node(int data) {
+    ListNode(int data) {
         this.data = data;
         this.next = null;
     }
 
     public static void main(String[] args) {
 
-        Node a = new Node(1);
-        Node b = new Node(3);
-        Node c = new Node(5);
-        Node d = new Node(7);
+        ListNode a = new ListNode(1);
+        ListNode b = new ListNode(3);
+        ListNode c = new ListNode(5);
+        ListNode d = new ListNode(7);
 
-        Node e = new Node(2);
-        Node f = new Node(4);
-        Node g = new Node(6);
-        Node h = new Node(8);
+        ListNode e = new ListNode(2);
+        ListNode f = new ListNode(4);
+        ListNode g = new ListNode(6);
+        ListNode h = new ListNode(8);
 
         // a -> b -> c -> d -> null
         a.next = b;
@@ -67,7 +67,7 @@ public class Node {
         // Get Reversed Linked List
 //        printLinkedList(getReversedLinkedList(a));
 //        printLinkedList(getReversedLinkedList(a));
-        Node newNode = getReversedLinkedList(a);
+        ListNode newNode = getReversedLinkedList(a);
 //        printLinkedList(newNode);
         // print list a because wtf
         printLinkedList(newNode);
@@ -76,13 +76,13 @@ public class Node {
         printLinkedList(zipperMergeTwoLists(a, e));
     }
 
-    private static void printLinkedList(Node head) {
+    private static void printLinkedList(ListNode head) {
 
         if (head == null) {
             return;
         }
 
-        Node current = head;
+        ListNode current = head;
 
         while (current != null) {
             System.out.println(current.toString());
@@ -90,7 +90,7 @@ public class Node {
         }
     }
 
-    private static void printLinkedListRecursively(Node head) {
+    private static void printLinkedListRecursively(ListNode head) {
         if (head == null) {
             return;
         }
@@ -101,14 +101,14 @@ public class Node {
 
     // Given the head of the linked list,
     // return an array with all the values of that linked list
-    private static int[] getArrayFormOfLinkedList(Node head){
+    private static int[] getArrayFormOfLinkedList(ListNode head){
         if (head == null) {
             return new int[0];
         }
 
         int[] result = new int[getCount(head)];
 
-        Node current = head;
+        ListNode current = head;
         int i = 0;
         while (current != null) {
             result[i] = current.data;
@@ -118,13 +118,13 @@ public class Node {
         return result;
     }
 
-    private static List<Integer> getArrayListFormOfLinkedList(Node head) {
+    private static List<Integer> getArrayListFormOfLinkedList(ListNode head) {
         if (head == null) {
             return new ArrayList<>();
         }
 
         List<Integer> result = new ArrayList<>();
-        Node curr = head;
+        ListNode curr = head;
 
         while (curr != null) {
             result.add(curr.data);
@@ -134,12 +134,12 @@ public class Node {
         return result;
     }
 
-    private static int getCount(Node head) {
+    private static int getCount(ListNode head) {
         if (head == null) {
             return 0;
         }
 
-        Node curr = head;
+        ListNode curr = head;
         int result = 0;
 
         while (curr != null) {
@@ -166,12 +166,12 @@ public class Node {
         System.out.print("]");
     }
 
-    private static int getTotalSumOfLinkedList(Node head) {
+    private static int getTotalSumOfLinkedList(ListNode head) {
         if (head == null) {
             return 0;
         }
 
-        Node curr = head;
+        ListNode curr = head;
         int sum = 0;
 
         while (curr != null) {
@@ -182,7 +182,7 @@ public class Node {
         return sum;
     }
 
-    private static int getTotalSumOfLinkedListRecursively(Node head) {
+    private static int getTotalSumOfLinkedListRecursively(ListNode head) {
         if (head == null) {
             return 0;
         }
@@ -190,12 +190,12 @@ public class Node {
         return head.data + getTotalSumOfLinkedListRecursively(head.next);
     }
 
-    private static boolean doesNodeExist(Node head, int data) {
+    private static boolean doesNodeExist(ListNode head, int data) {
         if (head == null) {
             return false;
         }
 
-        Node curr = head;
+        ListNode curr = head;
 
         while (curr != null) {
             if (curr.data == data) {
@@ -206,7 +206,7 @@ public class Node {
         return false;
     }
 
-    private static boolean doesNodeExistRecursively(Node head, int data) {
+    private static boolean doesNodeExistRecursively(ListNode head, int data) {
         if (head == null) {
             return false;
         }
@@ -214,12 +214,12 @@ public class Node {
         return doesNodeExistRecursively(head.next, data) || (head.data == data);
     }
 
-    private static int getValueAtIndex(Node head, int position) {
+    private static int getValueAtIndex(ListNode head, int position) {
         if (head == null || getCount(head) <= position) {
             return Integer.MIN_VALUE;
         }
 
-        Node curr = head;
+        ListNode curr = head;
         int count = 0;
 
         while (count < position) {
@@ -232,17 +232,17 @@ public class Node {
         return curr.data;
     }
 
-    private static Node getReversedLinkedList(Node head) {
+    private static ListNode getReversedLinkedList(ListNode head) {
         if (head == null) {
             return null;
         }
 
-        Node curr = getListCopy(head);
-        Node prev = null;
+        ListNode curr = getListCopy(head);
+        ListNode prev = null;
 
         // (1) -> (2) -> (3) -> (4)
         while (curr != null) {
-            Node next = curr.next;
+            ListNode next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
@@ -250,7 +250,7 @@ public class Node {
         return prev;
     }
 
-    private static Node zipperMergeTwoLists(Node head1, Node head2) {
+    private static ListNode zipperMergeTwoLists(ListNode head1, ListNode head2) {
         if (head1 == null && head2 == null) {
             return  null;
         }
@@ -263,12 +263,12 @@ public class Node {
             return head1;
         }
 
-        Node curr1 = head1;
-        Node curr2 = head2;
+        ListNode curr1 = head1;
+        ListNode curr2 = head2;
 
         while (curr1 != null && curr2 != null) {
-            Node next1 = curr1.next;
-            Node next2 = curr2.next;
+            ListNode next1 = curr1.next;
+            ListNode next2 = curr2.next;
 
             // Now swap
             curr1.next = curr2;
@@ -282,18 +282,18 @@ public class Node {
         return head1;
     }
 
-    private static Node getListCopy(Node head) {
+    private static ListNode getListCopy(ListNode head) {
         if (head == null) {
             return null;
         }
 
-        Node newHead = new Node(head.data);
-        Node newHeadCopy = newHead;
-        Node curr = head;
+        ListNode newHead = new ListNode(head.data);
+        ListNode newHeadCopy = newHead;
+        ListNode curr = head;
 
         while (curr != null) {
             if (curr.next != null) {
-                newHead.next = new Node(curr.next.data);
+                newHead.next = new ListNode(curr.next.data);
                 newHead = newHead.next;
             }
             curr = curr.next;
@@ -301,7 +301,7 @@ public class Node {
         return newHeadCopy;
     }
 
-    public Node getNext() {
+    public ListNode getNext() {
         return next;
     }
 
@@ -309,7 +309,7 @@ public class Node {
         return data;
     }
 
-    public void setNext(Node next) {
+    public void setNext(ListNode next) {
         this.next = next;
     }
 

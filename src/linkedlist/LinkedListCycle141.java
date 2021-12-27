@@ -1,10 +1,10 @@
 package linkedlist;
 
 public class LinkedListCycle141 {
-    public boolean hasCycle(Node head) {
+    public boolean hasCycle(ListNode head) {
 
-        Node fastPointer = head;
-        Node slowPointer = head;
+        ListNode fastPointer = head;
+        ListNode slowPointer = head;
 
         while (fastPointer != null && fastPointer.getNext() != null) {
 

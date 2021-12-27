@@ -2,10 +2,10 @@ package linkedlist;
 
 public class MiddleOfTheLinkedList876 {
 
-    public Node middleNode(Node head) {
+    public ListNode middleNode(ListNode head) {
 
-        Node fast = head;
-        Node slow = head;
+        ListNode fast = head;
+        ListNode slow = head;
 
         while (fast != null && fast.getNext() != null){
             fast = fast.getNext().getNext();
