@@ -1,6 +1,6 @@
 package linkedlist;
 
-public class LinkedListCycle141 {
+public class LinkedListCycle_141 {
     public boolean hasCycle(ListNode head) {
 
         ListNode fastPointer = head;

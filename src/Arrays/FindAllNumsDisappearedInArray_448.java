@@ -2,7 +2,7 @@ package Arrays;
 
 import java.util.*;
 
-public class FindAllNumsDisappearedInArray448 {
+public class FindAllNumsDisappearedInArray_448 {
 
 
     public static void main(String[] args) {

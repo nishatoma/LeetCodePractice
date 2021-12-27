@@ -1,6 +1,6 @@
 package Arrays;
 
-public class SingleNumber136 {
+public class SingleNumber_136 {
 
     public static void main(String[] args) {
 

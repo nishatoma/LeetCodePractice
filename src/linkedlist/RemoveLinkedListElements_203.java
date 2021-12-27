@@ -1,6 +1,6 @@
 package linkedlist;
 
-public class RemoveLinkedListElements203 {
+public class RemoveLinkedListElements_203 {
 
     public ListNode removeElements(ListNode head, int val) {
 

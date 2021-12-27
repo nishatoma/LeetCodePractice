@@ -1,6 +1,6 @@
 package linkedlist;
 
-public class MiddleOfTheLinkedList876 {
+public class MiddleOfTheLinkedList_876 {
 
     public ListNode middleNode(ListNode head) {
 

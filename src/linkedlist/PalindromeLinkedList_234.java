@@ -10,7 +10,7 @@ package linkedlist;
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class PalindromeLinkedList234 {
+class PalindromeLinkedList_234 {
     public boolean isPalindrome(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;

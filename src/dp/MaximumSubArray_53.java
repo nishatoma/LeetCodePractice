@@ -1,6 +1,6 @@
 package dp;
 
-public class MaximumSubArray53 {
+public class MaximumSubArray_53 {
 
     public int maxSubArray(int[] nums) {
         int max = Integer.MIN_VALUE;

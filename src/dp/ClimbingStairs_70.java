@@ -1,6 +1,6 @@
 package dp;
 
-class ClimbingStairs70 {
+class ClimbingStairs_70 {
 
     public static void main(String[] args) {
         int n = 5;

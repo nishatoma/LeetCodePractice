@@ -1,10 +1,10 @@
 package dp;
 
-public class RangeSumQueryImmutable303 {
+public class RangeSumQueryImmutable_303 {
 
     private final int[] nums;
 
-    public RangeSumQueryImmutable303(int[] nums) {
+    public RangeSumQueryImmutable_303(int[] nums) {
         this.nums = nums;
 
         // prefix sum

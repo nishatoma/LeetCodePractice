@@ -1,6 +1,6 @@
 package Arrays;
 
-public class MissingNumber268 {
+public class MissingNumber_268 {
 
 
     public int missingNumber(int[] nums) {
