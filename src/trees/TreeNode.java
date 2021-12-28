@@ -43,6 +43,4 @@ public class TreeNode<E> {
     public void setRight(TreeNode<E> right) {
         this.right = right;
     }
-
-
 }
