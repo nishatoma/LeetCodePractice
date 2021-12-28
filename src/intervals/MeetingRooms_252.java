@@ -9,10 +9,10 @@ public class MeetingRooms_252 {
     public boolean canAttendMeetings(List<Interval> intervals) {
         // Write your code here
         // Sort the array;
-        intervals.sort(Comparator.comparingInt(i -> i.start));
+        intervals.sort(Comparator.comparingInt(i -> i.getStart()));
 
         for (int i = 1; i < intervals.size(); i++) {
-            if (intervals.get(i).start < intervals.get(i - 1).end) {
+            if (intervals.get(i).getStart() < intervals.get(i - 1).getEnd()) {
                 return false;
             }
         }
@@ -20,11 +20,4 @@ public class MeetingRooms_252 {
     }
 }
 
-class Interval {
-    int start, end;
 
-    Interval(int start, int end) {
-        this.start = start;
-        this.end = end;
-    }
-}
