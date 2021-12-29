@@ -285,4 +285,19 @@ public class TreeNode<E> {
         }
         return min;
     }
+
+    public static int getMaxRootToLeafPathSum(TreeNode<Integer> root) {
+        int max = Integer.MIN_VALUE;
+        if (root == null) {
+            return max;
+        }
+        if (root.getRight() == null && root.getLeft() == null) {
+            return root.getVal();
+        }
+
+        int leftChildMax = Math.max(getMaxRootToLeafPathSum(root.getLeft()), max);
+        int rightChildMax = Math.max(getMaxRootToLeafPathSum(root.getRight()), max);
+
+        return root.getVal() + Math.max(leftChildMax, rightChildMax);
+    }
 }

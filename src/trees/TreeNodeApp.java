@@ -44,5 +44,9 @@ public class TreeNodeApp {
         System.out.println("Min value using DFS Iterative: " + TreeNode.treeMinDFS(a));
         System.out.println("Min value using DFS Recursive: " + TreeNode.treeMinDfsRecursive(a));
         System.out.println("Min value using BFS Iterative: " + TreeNode.treeMinBFS(a));
+        // Max value of root-to-leaf path sum
+        System.out.println("Max value root to leaf sum DFS Iterative: "
+                + TreeNode.getMaxRootToLeafPathSum(a));
+
     }
 }
