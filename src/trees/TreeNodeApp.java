@@ -40,5 +40,9 @@ public class TreeNodeApp {
         System.out.println("Total sum using DFS Iterative: " + TreeNode.getTreeSumDFS(a));
         System.out.println("Total sum using DFS Recursive: " + TreeNode.getTreeSumDfsRecursive(a));
         System.out.println("Total sum using BFS Iterative: " + TreeNode.getTreeSumBfs(a));
+        // Min value
+        System.out.println("Min value using DFS Iterative: " + TreeNode.treeMinDFS(a));
+        System.out.println("Min value using DFS Recursive: " + TreeNode.treeMinDfsRecursive(a));
+        System.out.println("Min value using BFS Iterative: " + TreeNode.treeMinBFS(a));
     }
 }

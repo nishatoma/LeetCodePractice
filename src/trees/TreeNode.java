@@ -218,4 +218,71 @@ public class TreeNode<E> {
         }
         return treeSum;
     }
+
+    public static int treeMinDFS(TreeNode<Integer> root) {
+        int min = Integer.MAX_VALUE;
+        if (root == null) {
+            return min;
+        }
+
+        // Iterate over the elements using depth first
+        Stack<TreeNode<Integer>> stack = new Stack<>();
+        stack.push(root);
+        // While the stack is not empty, iterate of the elements:
+        while (!stack.isEmpty()) {
+            TreeNode<Integer> curr = stack.pop();
+            // If we find a smaller value each iteration,
+            // update the min value.
+            min = Math.min(curr.getVal(), min);
+            // Now iterate over the children
+            if (curr.getRight() != null) {
+                stack.push(curr.getRight());
+            }
+            // Same for left
+            if (curr.getLeft() != null) {
+                stack.push(curr.getLeft());
+            }
+        }
+        return min;
+    }
+
+    public static int treeMinDfsRecursive(TreeNode<Integer> root) {
+
+        int min = Integer.MAX_VALUE;
+        if (root == null) {
+            return min;
+        } else {
+            min = root.getVal();
+        }
+
+        int minLeft = Math.min(min, treeMinDfsRecursive(root.getLeft()));
+        int minRight = Math.min(min, treeMinDfsRecursive(root.getRight()));
+
+        return Math.min(minLeft, minRight);
+    }
+
+    public static int treeMinBFS(TreeNode<Integer> root) {
+        int min = Integer.MAX_VALUE;
+        if (root == null) {
+            return min;
+        }
+        // Queue for BFS
+        Queue<TreeNode<Integer>> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()){
+            TreeNode<Integer> curr = queue.poll();
+
+            min = Math.min(min, curr.getVal());
+
+            if (curr.getLeft() != null) {
+                queue.add(curr.getLeft());
+            }
+
+            if (curr.getRight() != null) {
+                queue.add(curr.getRight());
+            }
+        }
+        return min;
+    }
 }
