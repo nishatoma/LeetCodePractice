@@ -29,24 +29,38 @@ public class TreeNodeApp {
         BTreePrinter.printNode(a);
 
         // Now make a list:
-        List<TreeNode<Integer>> list = TreeNode.breadthFirstValues(a);
+//        List<TreeNode<Integer>> list = TreeNode.breadthFirstValues(a);
 //        list.forEach(item -> System.out.println(item.getVal()));
-        // Find # 7
-        System.out.println("Does #9 exist?: " + TreeNode.findNodeDfsRecursive(a, 9));
-        System.out.println("Does #3 exist?: " + TreeNode.findNodeDfsRecursive(a, 3));
-        System.out.println("Does #5 exist?: " + TreeNode.findNodeDfsRecursive(a, 5));
-        System.out.println("Does #1 exist?: " + TreeNode.findNodeDfsRecursive(a, 1));
-        // Total sum test
-        System.out.println("Total sum using DFS Iterative: " + TreeNode.getTreeSumDFS(a));
-        System.out.println("Total sum using DFS Recursive: " + TreeNode.getTreeSumDfsRecursive(a));
-        System.out.println("Total sum using BFS Iterative: " + TreeNode.getTreeSumBfs(a));
-        // Min value
-        System.out.println("Min value using DFS Iterative: " + TreeNode.treeMinDFS(a));
-        System.out.println("Min value using DFS Recursive: " + TreeNode.treeMinDfsRecursive(a));
-        System.out.println("Min value using BFS Iterative: " + TreeNode.treeMinBFS(a));
-        // Max value of root-to-leaf path sum
-        System.out.println("Max value root to leaf sum DFS Iterative: "
-                + TreeNode.getMaxRootToLeafPathSum(a));
-
+//        // Find # 7
+//        System.out.println("Does #9 exist?: " + TreeNode.findNodeDfsRecursive(a, 9));
+//        System.out.println("Does #3 exist?: " + TreeNode.findNodeDfsRecursive(a, 3));
+//        System.out.println("Does #5 exist?: " + TreeNode.findNodeDfsRecursive(a, 5));
+//        System.out.println("Does #1 exist?: " + TreeNode.findNodeDfsRecursive(a, 1));
+//        //Total sum test
+//        System.out.println("Total sum using DFS Iterative: " + TreeNode.getTreeSumDFS(a));
+//        System.out.println("Total sum using DFS Recursive: " + TreeNode.getTreeSumDfsRecursive(a));
+//        System.out.println("Total sum using BFS Iterative: " + TreeNode.getTreeSumBfs(a));
+//        // Min value
+//        System.out.println("Min value using DFS Iterative: " + TreeNode.treeMinDFS(a));
+//        System.out.println("Min value using DFS Recursive: " + TreeNode.treeMinDfsRecursive(a));
+//        System.out.println("Min value using BFS Iterative: " + TreeNode.treeMinBFS(a));
+//        //Max value of root-to-leaf path sum
+//        System.out.println("Max value root to leaf sum DFS Iterative: "
+//                + TreeNode.getMaxRootToLeafPathSum(a));//
+//        //Preorder
+//        List<TreeNode<Integer>> preOrder = TreeNode.preOrderRecursive(a);
+//        preOrder.forEach(item -> System.out.println(item.getVal()));
+//        // In order
+//        List<TreeNode<Integer>> inOrderRecursive = TreeNode.inOrderRecursive(a);
+//        inOrderRecursive.forEach(item -> System.out.println(item.getVal()));
+//        // Post-order
+//        List<TreeNode<Integer>> postOrderRecursive = TreeNode.postOrderRecursive(a);
+//        postOrderRecursive.forEach(item -> System.out.println(item.getVal()));
+        // In order first
+//        List<TreeNode<Integer>> inOrder = TreeNode.inOrderIterative(a);
+//        inOrder.forEach(node-> System.out.println(node.getVal()));
+        // Post order?
+        List<TreeNode<Integer>> postOrderIterative = TreeNode.postOrderIterative(a);
+        postOrderIterative.forEach(node-> System.out.println(node.getVal()));
     }
 }

@@ -300,4 +300,98 @@ public class TreeNode<E> {
 
         return root.getVal() + Math.max(leftChildMax, rightChildMax);
     }
+
+    public static <E> List<TreeNode<E>> preOrder(TreeNode<E> root) {
+        List<TreeNode<E>> list = new ArrayList<>();
+
+        if (root == null) {
+            return list;
+        }
+
+        Stack<TreeNode<E>> stack = new Stack<>();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            TreeNode<E> curr = stack.pop();
+
+            list.add(curr);
+
+            if (curr.getRight() != null) {
+                stack.push(curr.getRight());
+            }
+
+            if (curr.getLeft() != null) {
+                stack.push(curr.getLeft());
+            }
+        }
+
+        return list;
+    }
+
+    public static <E> List<TreeNode<E>> preOrderRecursive(TreeNode<E> root) {
+        List<TreeNode<E>> result = new ArrayList<>();
+
+        if (root == null) {
+            return result;
+        }
+        result.add(root);
+        result.addAll(preOrderRecursive(root.getLeft()));
+        result.addAll(preOrderRecursive(root.getRight()));
+
+        return result;
+    }
+
+    public static <E> List<TreeNode<E>> inOrderRecursive(TreeNode<E> root) {
+        List<TreeNode<E>> result = new ArrayList<>();
+
+        if (root == null) {
+            return result;
+        }
+
+        result = inOrderRecursive(root.getLeft());
+        System.out.println("Added: " + root.getVal());
+        result.add(root);
+        result.addAll(inOrderRecursive(root.getRight()));
+
+        return result;
+    }
+
+    public static <E> List<TreeNode<E>> postOrderRecursive(TreeNode<E> root) {
+        List<TreeNode<E>> result = new ArrayList<>();
+
+        if (root == null){
+            return result;
+        }
+
+        result.addAll(postOrderRecursive(root.getLeft()));
+        result.addAll(postOrderRecursive(root.getRight()));
+        System.out.println("Added: " + root.getVal());
+        result.add(root);
+
+        return result;
+    }
+
+    public static <E> List<TreeNode<E>> inOrderIterative(TreeNode<E> root){
+        List<TreeNode<E>> result = new ArrayList<>();
+
+        Stack<TreeNode<E>> stack = new Stack<>();
+
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                root = root.getLeft();
+            }
+            root = stack.pop();
+            result.add(root);
+            root = root.getRight();
+        }
+
+        return result;
+    }
+
+    public static <E> List<TreeNode<E>> postOrderIterative(TreeNode<E> root){
+        List<TreeNode<E>> result = new ArrayList<>();
+
+        return result;
+    }
 }
