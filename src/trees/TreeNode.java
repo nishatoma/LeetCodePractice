@@ -392,6 +392,33 @@ public class TreeNode<E> {
     public static <E> List<TreeNode<E>> postOrderIterative(TreeNode<E> root){
         List<TreeNode<E>> result = new ArrayList<>();
 
+        if (root == null) {
+            return result;
+        }
+
+        Stack<TreeNode<E>> stack1 = new Stack<>();
+        Stack<TreeNode<E>> stack2 = new Stack<>();
+
+        // push root element
+        stack1.push(root);
+
+        while (!stack1.isEmpty()) {
+            TreeNode<E> curr = stack1.pop();
+            stack2.push(curr);
+
+            if (curr.getLeft() != null) {
+                stack1.push(curr.getLeft());
+            }
+
+            if (curr.getRight() != null) {
+                stack1.push(curr.getRight());
+            }
+        }
+
+        while (!stack2.isEmpty()) {
+            result.add(stack2.pop());
+        }
+
         return result;
     }
 }
