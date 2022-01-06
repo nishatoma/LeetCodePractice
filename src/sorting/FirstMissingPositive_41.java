@@ -1,7 +1,7 @@
 package sorting;
 
 class FirstMissingPositive_41 {
-    
+
     public int firstMissingPositive(int[] nums) {
         int k = 0;
         while (k < nums.length) {
