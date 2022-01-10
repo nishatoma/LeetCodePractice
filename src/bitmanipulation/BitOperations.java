@@ -25,6 +25,24 @@ public class BitOperations {
         System.out.println("Get right most bit of " + toBinarySigned(x));
         System.out.println("Answer " + getRightMostBit(x));
         System.out.println(x);
+        System.out.println(getNthMagicNumber(1));
+        System.out.println(getNthMagicNumber(2));
+        System.out.println(getNthMagicNumber(3));
+        System.out.println(getNthMagicNumber(4));
+        System.out.println(getNthMagicNumber(5));
+        System.out.println(getNthMagicNumber(6));
+        System.out.println(getNthMagicNumber(7));
+        System.out.println(getNthMagicNumber(8));
+        System.out.println(getNumDigits(10, 16));
+
+        System.out.println(isPowerOfTwoV1(40));
+        System.out.println(isPowerOfTwoV1(32));
+        System.out.println(isPowerOfTwoV1(64));
+        System.out.println(isPowerOfTwoV1(100));
+        System.out.println(isPowerOfTwoV1(1));
+        System.out.println(isPowerOfTwoV1(64));
+        System.out.println(isPowerOfTwoV1(2));
+        System.out.println(isPowerOfTwoV1(8));
     }
 
     static boolean isEven(int n) {
@@ -75,5 +93,33 @@ public class BitOperations {
             count++;
         }
         return count;
+    }
+
+    static int getNthMagicNumber(int n ) {
+        int x = n;
+        int sum = 0;
+        int count = 1;
+        while (x > 0) {
+            sum += (x & 1) * Math.pow(5, count);
+            x >>= 1;
+            count++;
+        }
+
+        return sum;
+    }
+
+    static int getNumDigits(int n, int b) {
+        int lognBaseB = (int) (Math.log(n) / Math.log(b));
+
+        return lognBaseB + 1;
+    }
+
+    static int getPascalSumForNthRow(int n) {
+        return (1 << (n - 1));
+    }
+
+    static boolean isPowerOfTwoV1(int n) {
+
+        return (n != 0) && ((n & (n - 1)) == 0);
     }
 }
