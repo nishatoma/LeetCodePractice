@@ -17,6 +17,7 @@ public class ExecutorExample2 {
         for (int i = 0; i < 100; ++i) {
             service.execute(new Task());
         }
+        service.shutdown();
     }
 
     static class Task implements Runnable {

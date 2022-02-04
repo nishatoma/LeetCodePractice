@@ -13,10 +13,12 @@ public class ExecutorExample {
         ExecutorService service = Executors.newFixedThreadPool(coreCount);
 
         // Then run the task 1000 times...
-        for (int i = 0; i < 1000; ++i) {
+        for (int i = 0; i < 40; ++i) {
             // Execute the task
             service.execute(new Task());
         }
+        // Shut down the service now
+        service.shutdown();
         System.out.println("GG NAME: " + Thread.currentThread().getName());
     }
 
