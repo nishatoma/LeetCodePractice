@@ -1,6 +1,5 @@
 package concurrency;
 
-import sun.plugin2.util.SystemUtil;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
