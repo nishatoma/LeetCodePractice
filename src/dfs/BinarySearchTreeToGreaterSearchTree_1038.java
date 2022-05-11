@@ -6,7 +6,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class BinarySearchTreeToGreaterSearchTree_1038 {
-    
+
     public TreeNode<Integer> bstToGst(TreeNode<Integer> root) {
         Deque<TreeNode<Integer>> stack = new ArrayDeque<>();
         TreeNode<Integer> curr = root;
