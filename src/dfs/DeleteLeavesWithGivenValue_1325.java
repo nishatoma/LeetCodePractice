@@ -3,6 +3,9 @@ package dfs;
 import trees.BTreePrinter;
 import trees.TreeNode;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class DeleteLeavesWithGivenValue_1325 {
 
     public static void main(String[] args) {
@@ -15,16 +18,45 @@ public class DeleteLeavesWithGivenValue_1325 {
         root.getRight().setRight(new TreeNode<>(4));
 
         BTreePrinter.printNode(removeLeafNodes(root, 2));
+        BTreePrinter.printNode(removeLeafNodes(root, 4));
+        BTreePrinter.printNode(removeLeafNodes(root, 1));
 
     }
     private static TreeNode<Integer> removeLeafNodes(TreeNode<Integer> root, int target) {
-        if (root == null) return null;
+        Deque<TreeNode<Integer>> stack = new ArrayDeque<>();
+        TreeNode<Integer> curr = root;
+        TreeNode<Integer> prev = null;
 
-        root.setLeft(removeLeafNodes(root.getLeft(), target));
-        root.setRight(removeLeafNodes(root.getRight(), target));
+        while (!stack.isEmpty() || curr != null) {
+            if (curr != null) {
+                stack.push(curr);
+                curr = curr.getLeft();
+            } else {
+                TreeNode<Integer> x = stack.peek();
 
+                if (x.getRight() == null || x.getRight() == prev) {
+                    stack.pop();
+                    prev = x;
 
+                    if (x.getLeft() == null && x.getRight() == null && x.getVal() == target) {
+                        TreeNode<Integer> parent = stack.peek();
 
-        return (root.getVal() == target && root.getLeft() == null && root.getRight() == null ? null : root);
+                        if (stack.isEmpty()) return null;
+
+                        if (parent.getLeft() == x) {
+                            parent.setLeft(null);
+                        }
+
+                        if (parent.getRight() == x) {
+                            parent.setRight(null);
+                        }
+                    }
+                } else {
+                    curr = x.getRight();
+                }
+            }
+        }
+
+        return root;
     }
 }
