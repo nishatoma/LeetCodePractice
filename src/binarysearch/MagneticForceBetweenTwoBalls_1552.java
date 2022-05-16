@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class MagneticForceBetweenTwoBalls_1552 {
     public int maxDistance(int[] position, int m) {
         Arrays.sort(position);

@@ -20,7 +20,7 @@ public class MergeTwoBinaryTrees_617 {
         }
 
         Deque<TreeNode<Integer>[]> stack = new ArrayDeque<>();
-        stack.push(new TreeNode<>[]{root1, root2});
+        stack.push(new TreeNode[]{root1, root2});
 
         while (!stack.isEmpty()) {
             TreeNode<Integer>[] curr = stack.pop();
@@ -35,14 +35,14 @@ public class MergeTwoBinaryTrees_617 {
             if (curr[0].getLeft() == null) {
                 curr[0].setLeft(curr[1].getLeft());
             } else {
-                stack.push(new TreeNode<>[]{curr[0].getLeft(), curr[1].getLeft()});
+                stack.push(new TreeNode[]{curr[0].getLeft(), curr[1].getLeft()});
             }
 
             // Same thing with the right child
             if (curr[0].getRight() == null) {
                 curr[0].setRight(curr[1].getRight());
             } else {
-                stack.push(new TreeNode<>[]{curr[0].getRight(), curr[1].getRight()});
+                stack.push(new TreeNode[]{curr[0].getRight(), curr[1].getRight()});
             }
 
         }

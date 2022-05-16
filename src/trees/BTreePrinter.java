@@ -6,7 +6,7 @@ import java.util.List;
 
 // From Stack Overflow
 // https://stackoverflow.com/a/4973083
-class BTreePrinter {
+public class BTreePrinter {
 
     public static <E extends Comparable<?>> void printNode(TreeNode<E> root) {
         int maxLevel = BTreePrinter.maxLevel(root);
