@@ -1,5 +1,7 @@
 package dsa.chapter3;
 
+import dsa.chapter3.GameEntry;
+
 public class Scoreboard {
 
     private int numEntries = 0;
