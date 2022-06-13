@@ -1,4 +1,4 @@
-package topologicalsort;
+package contest;
 
 public class FairDistributionOfCookies_2305 {
 
