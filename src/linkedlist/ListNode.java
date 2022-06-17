@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ListNode {
 
-    private final int data;
+    private int data;
     private ListNode next;
 
     ListNode(int data) {
@@ -307,6 +307,10 @@ public class ListNode {
 
     public int getData() {
         return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
     }
 
     public void setNext(ListNode next) {
