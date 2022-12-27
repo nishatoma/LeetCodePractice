@@ -1,6 +1,6 @@
 package bfs;
 
-import jdk.internal.net.http.common.Pair;
+import oop.Pair;
 import trees.TreeNode;
 
 import java.util.ArrayDeque;
@@ -16,8 +16,8 @@ public class SumOfLeftLeaves_404 {
 
         while (!q.isEmpty()) {
             Pair<TreeNode, Boolean> pair = q.poll();
-            TreeNode<Integer> curr = pair.first;
-            boolean isLeft = pair.second;
+            TreeNode<Integer> curr = pair.getKey();
+            boolean isLeft = pair.getValue();
 
             if (isLeft && curr.getLeft() == null && curr.getRight() == null) {
                 sum += curr.getVal();

@@ -14,7 +14,8 @@ public class MergeTwoBinaryTrees_617 {
 
         Deque<TreeNode<Integer>[]> q = new ArrayDeque<>();
 
-        q.push(new TreeNode<>[]{root1, root2});
+        TreeNode[] tnode = new TreeNode[]{root1, root2};
+        q.push(tnode);
 
         while (!q.isEmpty()) {
             TreeNode<Integer>[] currLevel = q.poll();
@@ -26,7 +27,7 @@ public class MergeTwoBinaryTrees_617 {
             if (currLevel[0].getLeft() == null) {
                 currLevel[0].setLeft(currLevel[1].getLeft());
             } else {
-                q.push(new TreeNode<>[]{currLevel[0].getLeft(), currLevel[1].getLeft()});
+                q.push(new TreeNode[]{currLevel[0].getLeft(), currLevel[1].getLeft()});
             }
 
             if (currLevel[0].getRight() == null) {

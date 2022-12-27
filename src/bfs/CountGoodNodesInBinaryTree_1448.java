@@ -1,6 +1,6 @@
 package bfs;
 
-import jdk.internal.net.http.common.Pair;
+import oop.Pair;
 import trees.TreeNode;
 
 import java.util.ArrayDeque;
@@ -16,8 +16,8 @@ public class CountGoodNodesInBinaryTree_1448 {
 
         while (!q.isEmpty()) {
             Pair<TreeNode<Integer>, Integer> pair = q.poll();
-            TreeNode<Integer> curr = pair.first;
-            int currMax = pair.second;
+            TreeNode<Integer> curr = pair.getKey();
+            int currMax = pair.getValue();
 
             if (curr.getVal() >= currMax) res++;
 
