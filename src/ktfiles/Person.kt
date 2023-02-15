@@ -7,8 +7,6 @@ fun main() {
     p.age = 32
 
     var p2 = Person()
-
-    MobilePhone("Samsung", "Galaxy s20 Ultra", "Android")
 }
 
 class Person (first: String = "John", last: String = "Doe") {
@@ -32,11 +30,10 @@ class Person (first: String = "John", last: String = "Doe") {
         println("My hobby is $hobby")
     }
 }
+interface Testing {
+    fun test()
+}
 
-class MobilePhone(val brand: String, val model: String, val osName: String) {
-
-//
-//    init {
-//        println("Our lastest phone from $brand is the all new $model running on $osName")
-//    }
+interface Debuggable {
+    fun debug()
 }
