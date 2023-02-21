@@ -4,9 +4,9 @@ import java.util.*;
 
 public class TreeNode<E> {
 
-    private E val;
-    private TreeNode<E> left;
-    private TreeNode<E> right;
+    public E val;
+    public TreeNode<E> left;
+    public TreeNode<E> right;
 
     private TreeNode() {
     }
