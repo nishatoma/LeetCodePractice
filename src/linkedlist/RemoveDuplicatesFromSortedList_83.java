@@ -8,14 +8,14 @@ public class RemoveDuplicatesFromSortedList_83 {
             return null;
         }
 
-        while (head != null && head.getNext() != null && head.getData() == head.getNext().getData()) {
+        while (head != null && head.getNext() != null && head.getVal() == head.getNext().getVal()) {
             head = head.getNext();
         }
 
         ListNode curr = head;
 
         while (curr != null && curr.getNext() != null) {
-            if (curr.getData() == curr.getNext().getData()) {
+            if (curr.getVal() == curr.getNext().getVal()) {
                 curr.setNext(curr.getNext().getNext());
             } else {
                 curr = curr.getNext();

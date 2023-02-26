@@ -25,7 +25,7 @@ class PalindromeLinkedList_234 {
         slow = reversed(slow);
 
         while (slow != null) {
-            if (slow.getData() != fast.getData()) {
+            if (slow.getVal() != fast.getVal()) {
                 return false;
             }
             fast = fast.getNext();

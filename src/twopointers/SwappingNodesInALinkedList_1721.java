@@ -26,9 +26,9 @@ public class SwappingNodesInALinkedList_1721 {
         }
 
         // Swap both left and right values
-        int temp = left.getData();
-        left.setData(right.getData());
-        right.setData(temp);
+        int temp = left.getVal();
+        left.setVal(right.getVal());
+        right.setVal(temp);
 
         return head;
     }

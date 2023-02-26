@@ -18,7 +18,7 @@ class MergeTwoSortedLists_21 {
         ListNode curr = temp;
         // Iterate through the two lists
         while (list1 != null && list2 != null) {
-            if (list1.getData() < list2.getData()) {
+            if (list1.getVal() < list2.getVal()) {
                 curr.setNext(list1);
                 // Move to the next element in list 1.
                 list1 = list1.getNext();

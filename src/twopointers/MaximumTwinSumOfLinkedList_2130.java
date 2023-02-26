@@ -23,7 +23,7 @@ public class MaximumTwinSumOfLinkedList_2130 {
         // keep a track of maximum sum
         int max = Integer.MIN_VALUE;
         while (slow != null) {
-            max = Math.max(max, slow.getData() + fast.getData());
+            max = Math.max(max, slow.getVal() + fast.getVal());
             slow = slow.getNext();
             fast = fast.getNext();
         }

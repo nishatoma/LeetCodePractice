@@ -5,11 +5,11 @@ import java.util.List;
 
 public class ListNode {
 
-    private int data;
-    private ListNode next;
+    int val;
+    ListNode next;
 
-    ListNode(int data) {
-        this.data = data;
+    ListNode(int val) {
+        this.val = val;
         this.next = null;
     }
 
@@ -111,7 +111,7 @@ public class ListNode {
         ListNode current = head;
         int i = 0;
         while (current != null) {
-            result[i] = current.data;
+            result[i] = current.val;
             i++;
             current = current.next;
         }
@@ -127,7 +127,7 @@ public class ListNode {
         ListNode curr = head;
 
         while (curr != null) {
-            result.add(curr.data);
+            result.add(curr.val);
             curr = curr.next;
         }
 
@@ -175,7 +175,7 @@ public class ListNode {
         int sum = 0;
 
         while (curr != null) {
-            sum += curr.data;
+            sum += curr.val;
             curr = curr.next;
         }
 
@@ -187,7 +187,7 @@ public class ListNode {
             return 0;
         }
 
-        return head.data + getTotalSumOfLinkedListRecursively(head.next);
+        return head.val + getTotalSumOfLinkedListRecursively(head.next);
     }
 
     private static boolean doesNodeExist(ListNode head, int data) {
@@ -198,7 +198,7 @@ public class ListNode {
         ListNode curr = head;
 
         while (curr != null) {
-            if (curr.data == data) {
+            if (curr.val == data) {
                 return true;
             }
             curr = curr.next;
@@ -211,7 +211,7 @@ public class ListNode {
             return false;
         }
 
-        return doesNodeExistRecursively(head.next, data) || (head.data == data);
+        return doesNodeExistRecursively(head.next, data) || (head.val == data);
     }
 
     private static int getValueAtIndex(ListNode head, int position) {
@@ -229,7 +229,7 @@ public class ListNode {
             count++;
         }
 
-        return curr.data;
+        return curr.val;
     }
 
     private static ListNode getReversedLinkedList(ListNode head) {
@@ -287,13 +287,13 @@ public class ListNode {
             return null;
         }
 
-        ListNode newHead = new ListNode(head.data);
+        ListNode newHead = new ListNode(head.val);
         ListNode newHeadCopy = newHead;
         ListNode curr = head;
 
         while (curr != null) {
             if (curr.next != null) {
-                newHead.next = new ListNode(curr.next.data);
+                newHead.next = new ListNode(curr.next.val);
                 newHead = newHead.next;
             }
             curr = curr.next;
@@ -305,12 +305,12 @@ public class ListNode {
         return next;
     }
 
-    public int getData() {
-        return data;
+    public int getVal() {
+        return val;
     }
 
-    public void setData(int data) {
-        this.data = data;
+    public void setVal(int val) {
+        this.val = val;
     }
 
     public void setNext(ListNode next) {
@@ -322,6 +322,6 @@ public class ListNode {
     @Override
     public String toString() {
         return "Node {" +
-                "data = " + data + " }";
+                "data = " + val + " }";
     }
 }

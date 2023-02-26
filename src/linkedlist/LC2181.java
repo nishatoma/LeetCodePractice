@@ -7,18 +7,18 @@ public class LC2181 {
 
         ListNode node = head;
         while (node != null) {
-            if (node.getData() != 0) {
+            if (node.val != 0) {
                 ListNode newNode = new ListNode(0);
-                while (node != null && node.getData() != 0) {
-                    newNode.setData(newNode.getData() + node.getData());
-                    node = node.getNext();
+                while (node != null && node.val != 0) {
+                    newNode.val += node.val;
+                    node = node.next;
                 }
-                curr.setNext(newNode);
+                curr.next = newNode;
                 curr = newNode;
             } else {
-                node = node.getNext();
+                node = node.next;
             }
         }
-        return dummy.getNext();
+        return dummy.next;
     }
 }
