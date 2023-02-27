@@ -6,8 +6,13 @@ public class LC1268 {
     public List<List<String>> suggestedProducts(String[] products, String searchWord) {
         Trie trie = new Trie();
         // Sort the products array to maintain lexographical order
+        // O(N*LOG(N))
         Arrays.sort(products);
         // For each product, add it to Trie
+        // If products length is n
+        // and each product has length m,
+        // Then run time for this for loop is
+        // O(N*M)
         for (String product : products) {
             trie.insert(product);
         }
@@ -15,6 +20,8 @@ public class LC1268 {
         List<List<String>> res = new ArrayList<>();
         // Iterate over the root edges
         TrieNode curr = trie.root;
+        // O(L*X) where X is the length of suggestions
+        // for each character.
         for (char c : searchWord.toCharArray()) {
             // get the suggestions list
             if (curr != null) {
