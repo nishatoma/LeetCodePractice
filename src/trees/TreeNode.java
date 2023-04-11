@@ -2,54 +2,54 @@ package trees;
 
 import java.util.*;
 
-public class TreeNode<E> {
+public class TreeNode {
 
-    public E val;
-    public TreeNode<E> left;
-    public TreeNode<E> right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
     private TreeNode() {
     }
 
-    public TreeNode(E val) {
+    public TreeNode(Integer val) {
         this.val = val;
         this.left = null;
         this.right = null;
     }
 
-    public TreeNode(E val, TreeNode<E> left, TreeNode<E> right) {
+    public TreeNode(Integer val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
         this.right = right;
     }
 
-    public E getVal() {
+    public Integer getVal() {
         return val;
     }
 
-    public void setVal(E val) {
+    public void setVal(Integer val) {
         this.val = val;
     }
 
-    public TreeNode<E> getLeft() {
+    public TreeNode getLeft() {
         return left;
     }
 
-    public void setLeft(TreeNode<E> left) {
+    public void setLeft(TreeNode left) {
         this.left = left;
     }
 
-    public TreeNode<E> getRight() {
+    public TreeNode getRight() {
         return right;
     }
 
-    public void setRight(TreeNode<E> right) {
+    public void setRight(TreeNode right) {
         this.right = right;
     }
 
-    public static <E> List<TreeNode<E>> depthFirstValues(TreeNode<E> root) {
-        Stack<TreeNode<E>> stack = new Stack<>();
-        List<TreeNode<E>> result = new ArrayList<>();
+    public static <Integer> List<TreeNode> depthFirstValues(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        List<TreeNode> result = new ArrayList<>();
 
         if (root == null) {
             return result;
@@ -58,7 +58,7 @@ public class TreeNode<E> {
         stack.push(root);
 
         while (!stack.isEmpty()) {
-            TreeNode<E> curr = stack.pop();
+            TreeNode curr = stack.pop();
             result.add(curr);
 
             if (curr.getRight() != null) {
@@ -74,8 +74,8 @@ public class TreeNode<E> {
 
     }
 
-    public static <E> List<TreeNode<E>> depthFirstValuesRecursive(TreeNode<E> root) {
-        List<TreeNode<E>> result = new ArrayList<>();
+    public static List<TreeNode> depthFirstValuesRecursive(TreeNode root) {
+        List<TreeNode> result = new ArrayList<>();
 
         if (root == null) {
             return result;
@@ -89,21 +89,21 @@ public class TreeNode<E> {
         return result;
     }
 
-    public static <E> List<TreeNode<E>> breadthFirstValues(TreeNode<E> root) {
-        List<TreeNode<E>> result = new ArrayList<>();
+    public static List<TreeNode> breadthFirstValues(TreeNode root) {
+        List<TreeNode> result = new ArrayList<>();
 
         if (root == null) {
             return result;
         }
 
         // Initialize queue and enqueue the root first
-        Queue<TreeNode<E>> queue = new ArrayDeque<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
 
         // As long as the queue is not empty
         // dequeue the first element and put it into a variable
         while (!queue.isEmpty()) {
-            TreeNode<E> curr = queue.poll();
+            TreeNode curr = queue.poll();
             // The result will always be added in order
             result.add(curr);
 
@@ -119,17 +119,17 @@ public class TreeNode<E> {
         return result;
     }
 
-    public static <E> boolean findNode(TreeNode<E> root, E val) {
+    public static  boolean findNode(TreeNode root, int val) {
         if (root == null) {
             return false;
         }
 
         // Iterate with BFS
-        Queue<TreeNode<E>> queue = new ArrayDeque<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
 
         while (!queue.isEmpty()) {
-            TreeNode<E> curr = queue.poll();
+            TreeNode curr = queue.poll();
             if (curr.getVal() == val) {
                 return true;
             }
@@ -143,7 +143,7 @@ public class TreeNode<E> {
         return false;
     }
 
-    public static <E> boolean findNodeDfsRecursive(TreeNode<E> root, E val) {
+    public static  boolean findNodeDfsRecursive(TreeNode root, int val) {
         if (root == null) {
             return false;
         }
@@ -153,19 +153,19 @@ public class TreeNode<E> {
         return findNodeDfsRecursive(root.getLeft(), val) || findNodeDfsRecursive(root.getRight(), val);
     }
 
-    public static int getTreeSumDFS(TreeNode<Integer> root) {
+    public static int getTreeSumDFS(TreeNode root) {
         int treeSum = 0;
         if (root == null) {
             return treeSum;
         }
 
         // Stack approach
-        Stack<TreeNode<Integer>> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
 
         // Iterate over the whole tree now depth first
         while (!stack.isEmpty()) {
-            TreeNode<Integer> curr = stack.pop();
+            TreeNode curr = stack.pop();
             // Add the value of the node to the treeSum
             treeSum += curr.getVal();
             // Iterate over the children now
@@ -179,7 +179,7 @@ public class TreeNode<E> {
         return treeSum;
     }
 
-    public static int getTreeSumDfsRecursive(TreeNode<Integer> root) {
+    public static int getTreeSumDfsRecursive(TreeNode root) {
         int treeSum = 0;
         if (root == null) {
             return 0;
@@ -190,21 +190,21 @@ public class TreeNode<E> {
         return treeSum + getTreeSumDfsRecursive(root.getLeft()) + getTreeSumDfsRecursive(root.getRight());
     }
 
-    public static int getTreeSumBfs(TreeNode<Integer> root) {
+    public static int getTreeSumBfs(TreeNode root) {
         int treeSum = 0;
         // If the parent node is null, just return 0.
         if (root == null) {
             return treeSum;
         }
         // Make a Queue for our BFS approach and iterate over all the leaves
-        Queue<TreeNode<Integer>> queue = new ArrayDeque<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         // push the parent first
         queue.add(root);
         // while the queue is not empty, iterate over and add the value of
         // all the elements to the treeSum.
         while (!queue.isEmpty()) {
             // Remove the element at the head of queue
-            TreeNode<Integer> curr = queue.poll();
+            TreeNode curr = queue.poll();
             // And then add it to the sum:
             treeSum += curr.getVal();
             // Now add the left and right children to the queue, respectively.
@@ -219,18 +219,18 @@ public class TreeNode<E> {
         return treeSum;
     }
 
-    public static int treeMinDFS(TreeNode<Integer> root) {
+    public static int treeMinDFS(TreeNode root) {
         int min = Integer.MAX_VALUE;
         if (root == null) {
             return min;
         }
 
         // Iterate over the elements using depth first
-        Stack<TreeNode<Integer>> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         // While the stack is not empty, iterate of the elements:
         while (!stack.isEmpty()) {
-            TreeNode<Integer> curr = stack.pop();
+            TreeNode curr = stack.pop();
             // If we find a smaller value each iteration,
             // update the min value.
             min = Math.min(curr.getVal(), min);
@@ -246,7 +246,7 @@ public class TreeNode<E> {
         return min;
     }
 
-    public static int treeMinDfsRecursive(TreeNode<Integer> root) {
+    public static int treeMinDfsRecursive(TreeNode root) {
 
         int min = Integer.MAX_VALUE;
         if (root == null) {
@@ -261,17 +261,17 @@ public class TreeNode<E> {
         return Math.min(minLeft, minRight);
     }
 
-    public static int treeMinBFS(TreeNode<Integer> root) {
+    public static int treeMinBFS(TreeNode root) {
         int min = Integer.MAX_VALUE;
         if (root == null) {
             return min;
         }
         // Queue for BFS
-        Queue<TreeNode<Integer>> queue = new ArrayDeque<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
 
         while (!queue.isEmpty()){
-            TreeNode<Integer> curr = queue.poll();
+            TreeNode curr = queue.poll();
 
             min = Math.min(min, curr.getVal());
 
@@ -286,7 +286,7 @@ public class TreeNode<E> {
         return min;
     }
 
-    public static int getMaxRootToLeafPathSum(TreeNode<Integer> root) {
+    public static int getMaxRootToLeafPathSum(TreeNode root) {
         int max = Integer.MIN_VALUE;
         if (root == null) {
             return max;
@@ -301,18 +301,18 @@ public class TreeNode<E> {
         return root.getVal() + Math.max(leftChildMax, rightChildMax);
     }
 
-    public static <E> List<TreeNode<E>> preOrder(TreeNode<E> root) {
-        List<TreeNode<E>> list = new ArrayList<>();
+    public static List<TreeNode> preOrder(TreeNode root) {
+        List<TreeNode> list = new ArrayList<>();
 
         if (root == null) {
             return list;
         }
 
-        Stack<TreeNode<E>> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
 
         while (!stack.isEmpty()) {
-            TreeNode<E> curr = stack.pop();
+            TreeNode curr = stack.pop();
 
             list.add(curr);
 
@@ -328,8 +328,8 @@ public class TreeNode<E> {
         return list;
     }
 
-    public static <E> List<TreeNode<E>> preOrderRecursive(TreeNode<E> root) {
-        List<TreeNode<E>> result = new ArrayList<>();
+    public static List<TreeNode> preOrderRecursive(TreeNode root) {
+        List<TreeNode> result = new ArrayList<>();
 
         if (root == null) {
             return result;
@@ -341,8 +341,8 @@ public class TreeNode<E> {
         return result;
     }
 
-    public static <E> List<TreeNode<E>> inOrderRecursive(TreeNode<E> root) {
-        List<TreeNode<E>> result = new ArrayList<>();
+    public static List<TreeNode> inOrderRecursive(TreeNode root) {
+        List<TreeNode> result = new ArrayList<>();
 
         if (root == null) {
             return result;
@@ -356,8 +356,8 @@ public class TreeNode<E> {
         return result;
     }
 
-    public static <E> List<TreeNode<E>> postOrderRecursive(TreeNode<E> root) {
-        List<TreeNode<E>> result = new ArrayList<>();
+    public static List<TreeNode> postOrderRecursive(TreeNode root) {
+        List<TreeNode> result = new ArrayList<>();
 
         if (root == null){
             return result;
@@ -371,10 +371,10 @@ public class TreeNode<E> {
         return result;
     }
 
-    public static <E> List<TreeNode<E>> inOrderIterative(TreeNode<E> root){
-        List<TreeNode<E>> result = new ArrayList<>();
+    public static List<TreeNode> inOrderIterative(TreeNode root){
+        List<TreeNode> result = new ArrayList<>();
 
-        Stack<TreeNode<E>> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
 
         while (!stack.isEmpty() || root != null) {
             while (root != null) {
@@ -389,21 +389,21 @@ public class TreeNode<E> {
         return result;
     }
 
-    public static <E> List<TreeNode<E>> postOrderIterative(TreeNode<E> root){
-        List<TreeNode<E>> result = new ArrayList<>();
+    public static List<TreeNode> postOrderIterative(TreeNode root){
+        List<TreeNode> result = new ArrayList<>();
 
         if (root == null) {
             return result;
         }
 
-        Stack<TreeNode<E>> stack1 = new Stack<>();
-        Stack<TreeNode<E>> stack2 = new Stack<>();
+        Stack<TreeNode> stack1 = new Stack<>();
+        Stack<TreeNode> stack2 = new Stack<>();
 
         // push root element
         stack1.push(root);
 
         while (!stack1.isEmpty()) {
-            TreeNode<E> curr = stack1.pop();
+            TreeNode curr = stack1.pop();
             stack2.push(curr);
 
             if (curr.getLeft() != null) {
