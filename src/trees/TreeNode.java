@@ -8,7 +8,7 @@ public class TreeNode {
     public TreeNode left;
     public TreeNode right;
 
-    private TreeNode() {
+    public TreeNode() {
     }
 
     public TreeNode(Integer val) {
